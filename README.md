@@ -12,14 +12,6 @@ It supports:
 
 ---
 
-## 🎥 Project Demo (GIF)
-
-*(Add your GIF here later — example placeholder below)*
-
-![Demo GIF](assets/chat-demo.gif)
-
----
-
 ## 🚀 Features
 
 ### 🟢 Group Chat
