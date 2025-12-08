@@ -1,64 +1,68 @@
-Spring Boot WebSocket Chat Application
-Real-time Group Chat + Private One-to-One Chat (STOMP + SockJS)
+# Spring Boot WebSocket Chat Application  
+### Real-time Group Chat + Private One-to-One Chat (STOMP + SockJS)
 
-This is a real-time chat application built using Spring Boot WebSocket, STOMP messaging, and SockJS.
+This is a real-time chat application built using **Spring Boot WebSocket**, **STOMP messaging**, and **SockJS**.  
 It supports:
 
-✔ Real-time group chat
-✔ Private chat between two users
-✔ User join/leave notifications
-✔ Multiple browser clients
-✔ Clean UI using HTML, CSS, and JavaScript
+✔ Real-time **group chat**  
+✔ **Private chat** between two users  
+✔ User join/leave notifications  
+✔ Multiple browser clients  
+✔ Clean UI using HTML, CSS, and JavaScript  
 
-🚀 Features
-🟢 Group Chat
+---
 
-Broadcasts messages to all connected users.
+## 🎥 Project Demo (GIF)
 
-Shows join/leave notifications.
+*(Add your GIF here later — example placeholder below)*
 
-Updates instantly without refreshing the page.
+![Demo GIF](assets/chat-demo.gif)
 
-🔵 Private Chat
+---
 
-One-to-one messaging between users.
+## 🚀 Features
 
-Uses dynamic private channels (/queue/private.{username}).
+### 🟢 Group Chat
+- Broadcast messages instantly to all connected users.
+- Displays join/leave notifications.
+- No page refresh required.
 
-Sender sees:
-You → receiver: message
+### 🔵 Private Chat
+- Secure one-to-one messaging between users.
+- Uses dynamic destinations → `/queue/private.{username}`.
+- Sender sees:  
+  `You → receiver: message`
+- Receiver sees:  
+  `(Private) sender → You: message`
 
-Receiver sees:
-(Private) sender → You: message
+### 🟠 WebSocket Messaging Flow
+- `/topic/public` → group chat messages  
+- `/queue/private.{username}` → private messages  
+- `/app/chat.sendMessage` → send group messages  
+- `/app/chat.privateMessage` → send private messages  
+- `/app/chat.addUser` → handle join events  
 
-🟠 WebSocket Messaging Flow
+### 🧩 Frontend (Vanilla JavaScript)
+- Implements WebSocket client using SockJS + STOMP.
+- Handles real-time updates.
+- Manages user switching, subscriptions, and UI updates.
 
-/topic/public → group chat messages
+---
 
-/queue/private.{username} → private messages
+## 🛠️ Tech Stack
 
-/app/chat.sendMessage → send group messages
+| Layer      | Technologies |
+|------------|-------------|
+| Backend    | Spring Boot, WebSocket, STOMP, SockJS |
+| Frontend   | HTML, CSS, JavaScript |
+| Build Tool | Maven |
+| Protocol   | WebSocket (STOMP over SockJS) |
+| IDE        | IntelliJ IDEA |
 
-/app/chat.privateMessage → send private messages
+---
 
-/app/chat.addUser → handle user join events
+## 📁 Project Structure
 
-🧩 Frontend (Vanilla JS)
-
-Connects to WebSocket via SockJS + STOMP.
-
-Dynamically updates chat UI.
-
-Handles subscriptions and message parsing.
-
-🛠️ Tech Stack
-Layer	Technologies
-Backend	Spring Boot 3+, WebSocket, STOMP, SockJS
-Frontend	HTML, CSS, JavaScript
-Build Tool	Maven
-Protocol	WebSocket (STOMP over SockJS)
-IDE	IntelliJ IDEA
-📁 Project Structure
 src/main/java/com/chatApp/chat
 │
 ├── config
@@ -84,28 +88,28 @@ src/main/resources/static
 pom.xml
 README.md
 
+---
 
-▶️ How to Run the Project
-1. Clone the repository
+## ▶️ How to Run
+
+### 1️⃣ Clone the repository
 git clone https://github.com/<your-username>/springboot-websocket-chatApp.git
 cd springboot-websocket-chatApp
 
-2. Start the Spring Boot application
+### 2️⃣ Run the Spring Boot application
 mvn spring-boot:run
 
-3. Open in browser
+### 3️⃣ Open the application
 http://localhost:8080
 
-4. Test real-time chat
+### 4️⃣ Test with multiple users
+1. Open two or more browser tabs
+2. Join with different usernames
+3. Send group and private messages
 
-Open multiple tabs
-
-Join with different usernames
-
-Try group and private messages
 
 ❤️ Author
-
 Abhipsa Choudhury
 Java Developer | Spring Boot | Backend Engineering
-LinkedIn: https://linkedin.com/in/abhipsa-choudhury-3a3825212
+🔗 GitHub: https://github.com/abhipsa11
+🔗 LinkedIn: https://linkedin.com/in/abhipsa-choudhury-3a3825212
