@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring WebSocket Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+        }
+
+        #username-page, #chat-page {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2, h3 {
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 6px 12px;
+            border: none;
+            background: #1976d2;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #135ba2;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            max-height: 260px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+
+        li {
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== ENTER CHAT PAGE ========== -->
+<div id="username-page">
+    <h2>Enter Chat</h2>
+    <p>Enter a username. Use the same username when sending private messages.</p>
+
+    <form id="usernameForm">
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <button type="submit">Join</button>
+    </form>
+</div>
+
+<!-- ========== CHAT PAGE ========== -->
+<div id="chat-page" style="display:none;">
+    <h2>WebSocket Chat</h2>
+
+    <h3>Group Chat</h3>
+    <ul id="messageArea"></ul>
+
+    <form id="messageForm">
+        <input type="text" id="message" placeholder="Type group message" />
+        <button type="submit">Send</button>
+    </form>
+
+    <hr>
+
+    <h3>Private Chat</h3>
+
+    <form id="privateMessageForm">
+        <input type="text" id="recipient" placeholder="Recipient username" />
+        <input type="text" id="privateMessage" placeholder="Private message" />
+        <button type="submit">Send</button>
+    </form>
+
+    <ul id="privateMessageArea"></ul>
+</div>
+
+<!-- SockJS + STOMP from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<!-- Your app script (file is src/main/resources/static/main.js) -->
+<script src="/main.js"></script>
+
+</body>
+</html>
