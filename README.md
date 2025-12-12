@@ -54,7 +54,7 @@ It supports:
 ---
 
 ## 📁 Project Structure
-'''
+
 src/main/java/com/chatApp/chat
 │
 ├── config
@@ -79,7 +79,7 @@ src/main/resources/static
 
 pom.xml
 README.md
-'''
+
 ---
 
 ## ▶️ How to Run
