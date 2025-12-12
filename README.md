@@ -55,6 +55,7 @@ It supports:
 
 ## 📁 Project Structure
 
+```text
 src/main/java/com/chatApp/chat
 │
 ├── config
